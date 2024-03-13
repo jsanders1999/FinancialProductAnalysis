@@ -22,6 +22,9 @@ def dr(df, products):
         for i, close_price in enumerate(close_data):
             if i == 0:
                 j+=1
+            elif j>=len(available_closedata):
+                print(j, "is too large")
+                break
             elif not np.isnan(close_price):
                 dr[i]  = available_closedata.iloc[j]/available_closedata.iloc[j-1]-1
                 j += 1
